@@ -52,7 +52,7 @@ CuboidMaker.prototype.surfaceArea = function() {
 //prototype links this to the constructor function above
 //remember commas not ;
 
-cuboid = new CuboidMaker({
+const cuboid = new CuboidMaker({
   length: 4,
   width: 5,
   height: 5
