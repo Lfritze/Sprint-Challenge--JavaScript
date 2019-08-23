@@ -13,7 +13,7 @@ const trex = {
   diet: "carnivorous",
   weight: "7000kg",
   length: "12m",
-  period: "Late Cretaceious",
+  period: "Late Cretaceous",
   roar: function() {
     return "RAWERSRARARWERSARARARRRR!"
   }
