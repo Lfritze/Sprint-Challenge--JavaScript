@@ -36,7 +36,7 @@ const velociraptor = {
   diet: "carnivorus",
   weight: "15kg",
   length: "1.8m",
-  period: "Late Cretaceious"
+  period: "Late Cretaceous"
 };
 
 // Using your dinosaur objects, log answers to these questions:
@@ -78,8 +78,17 @@ const graduates = [
 /* Request 1: Create a new array called universities that contains all the universities in the graduates array. This will be an array of strings.
 
 Once you have the new array created, sort the universities alphabetically and log the result. */
+
+// we are going inside to extract something, build a loop related to array length
+//.sort() sorts in into alphabetic order
+// .push() adds 1 more element to the array and returns the new length
+
 const universities = [];
-console.log(universities);
+
+for (i=0; i<graduates.length; i++) {
+  universities.push(graduates[i].university)
+}
+console.log(universities.sort());
 
 /* Request 2: Create a new array called contactInfo that contains both first name and email of each student. This will be an array of strings.
 
@@ -87,11 +96,30 @@ The resulting contact information strings should have a space between the first 
 "Josh josh@example.com"
 
 Log the result of your new array. */
+
+// going inside to extract...need a loop
+// add space with string and quotes + ??
+// push to add 1 element to array
 const contactInfo = [];
+
+for (i=0; i<graduates.length; i++) {
+  const contact = graduates[i].first_name + " " + graduates[i].email;
+  contactInfo.push(contact);
+}
+
 console.log(contactInfo);
 
 /* Request 3: Find out how many universities have the string "Uni" included in their name. Create a new array called unisWithUni that contains them all. This will be an array of objects. Log the result. */
+
+// going inside to extract...need a loop
+// use .includes() determines whether an array includes a certain value among its entries
+// look for "Uni" with includes
 const unisWithUni = [];
+for (i=0; i<graduates.length; i++) {
+  if (graduates[i].university.includes("Uni")) {
+    unisWithUni.push(graduates[i].university);
+  }
+}
 console.log(unisWithUni);
 
 
@@ -117,16 +145,22 @@ const zooAnimals = [
 The zoos want to display both the scientific name and the animal name in front of the habitats. Populate the displayNames array with only the animal_name and scientific_name of each animal. displayNames will be an array of strings, and each string should follow this pattern: "Name: Jackal, asiatic, Scientific: Canis aureus."
 
 */
-const displayNames = [];
-console.log(displayNames);
+
+//.forEach method works like a for loop 
+
+const displayNames = zooAnimals.forEach(beast => 
+console.log( `Name: ${beast.animal_name}, Scientific: ${beast.scientific_name} `));
 
 /* Request 2: .map()
 
 The zoos need a list of all their animal's names (animal_name only) converted to lower case. Using map, create a new array of strings named lowCaseAnimalNames, each string following this pattern: "jackal, asiatic". Log the resut.
-
 */
 
-const lowCaseAnimalNames = [];
+// the map method creates a new array with results of calling a provided function on every element in the calling array
+//.toLowerCase returns the calling string value converted to lower case
+
+const lowCaseAnimalNames = zooAnimals.map(animal =>
+  animal.animal_name.toLowerCase());
 console.log(lowCaseAnimalNames);
 
 /* Request 3: .filter() 
@@ -134,15 +168,27 @@ console.log(lowCaseAnimalNames);
 The zoos are concerned about animals with a lower population count. Using filter, create a new array of objects called lowPopulationAnimals which contains only the animals with a population less than 5.
 
 */
-const lowPopulationAnimals = [];
-console.log(lowPopulationAnimals);
+
+//The filter() method creates a new array with all elements that pass the test implemented by the provided function 
+// like an if statement  <5  
+
+const lowPopulationAnimals = zooAnimals.filter(beast =>
+  beast.population < 5);  
+  console.log(lowPopulationAnimals);
 
 /* Request 4: .reduce() 
 
 The zoos need to know their total animal population across the United States. Find the total population from all the zoos using the .reduce() method. Remember the reduce method takes two arguments: a callback (which itself takes two args), and an initial value for the count.
 
 */
-const populationTotal = 0;
+
+//The reduce() method executes a reducer function (that you provide) on each element of the array, resulting in a single output value.
+// += is an addition assignment 
+//The reduce() method executes a reducer function (that you provide) on each element of the array, resulting in a single output value.
+// remember reduce uses   }, 0);
+
+const populationTotal = zooAnimals.reduce((totPop, currPop) => {
+  return totPop += currPop.population}, 0);
 console.log(populationTotal);
 
 
