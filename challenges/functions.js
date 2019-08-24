@@ -10,8 +10,8 @@
 // A callback function is a function passed into another function as an argument, which is then invoked inside the outer function to complete some kind of routine or action
 //A Higher-Order function is a function that receives a function as an argument or returns the function as output.
 
-function consume(a, b, cb) {
-  console.log(cb(a, b)); // a and b are arguments for the cb
+const consume = function(param1, param2, cb)  {
+  return cb(param1, param2);
 };
 
 
@@ -30,7 +30,7 @@ function multiply(num1, num2){
 }
 
 function greeting(firstName, lastName) {
-  return `Hello ${firstName} ${lastName}, nice to meet you!`
+  return `Hello ${firstName} ${lastName}, nice to meet you!`;
 }
 
 
