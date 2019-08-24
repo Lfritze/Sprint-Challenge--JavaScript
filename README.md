@@ -30,13 +30,35 @@ Edit this document to include your answers after each question. Make sure to lea
 
 1. Describe the biggest difference between `.forEach` & `.map`.
 
+The main difference is that map returns a new array of elements while passing each element back to the callback.
+the forEach method executes a function once for each array element.
+Map creates a new array with the results of calling a function on every element in the array.
+
 2. What is the difference between a function and a method?
+
+Both are functions.  The difference is that a method is a function inside an object or class.  A function becomes a method when it is inside an object or class.
 
 3. What is closure?
 
+Closure provides access to an outer function’s scope from an inner function. If a variable isn’t defined in a function scope, the function will look outside its lexical scope to find the referenced variable in the outer scope.  
+Closure is all about understanding the nested environment.
+
 4. Describe the four rules of the 'this' keyword.
 
+Window / Global Binding- This works in the global scope. The 'this' keyword will be the window object. The window object is an open window in the browser. Global is not country, state, county, city.  Global is world.
+
+Implicit Binding - 
+This is the most commonly used principle. When a function is called with a dot before it (preceding dot), 'this' is the object before the dot. Example,  'this.functionName'.  The dot notation is used to invoke a function.  The items to the left of the dot become the CONTEXT for 'this' in the function. The context is to the left when invoked.
+ 
+New Binding - 
+New Binding is for a constructor function and 'this' refers to the specific instance of the object and is returned by the constructor function. A Constructor function constructs other objects as its main purpose.
+ 
+Explicit Binding - 
+Explicit binding occurs when we use .call(), .apply(), or .bind() on a function.  We are explicitly passing a 'this' context to call() and apply().  Note: apply works great for arrays. 
+ 
 5. Why do we need super() in an extended class?
+
+It’s a matter of inheritance. Super() is used to tell the parent’s constructor() to be concerned with the child’s attributes and removes the need to type out cumbersome syntax such as Object.create and bind, call, apply.   This is to pass any new attributes back up to the constructor() of the parent object.
 
 ## Project Set up
 
